@@ -54,14 +54,14 @@ public class UserServiceImpl implements UserService {
     }
 
     private void checkExistEntity(UserDto dto) {
-        User user = repository.findByNameAndEmail(dto.getUserName(), dto.getEmail());
+        User user = repository.findByUserNameAndEmail(dto.getUserName(), dto.getEmail());
         if (user == null) {
             throw new RuntimeException("Not found");
         }
     }
 
     private void checkNotExistEntity(UserDto dto) {
-        User user = repository.findByNameAndEmail(dto.getUserName(), dto.getEmail());
+        User user = repository.findByUserNameAndEmail(dto.getUserName(), dto.getEmail());
         if (user != null) {
             throw new RuntimeException("Not found");
         }

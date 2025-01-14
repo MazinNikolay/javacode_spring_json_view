@@ -20,7 +20,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("app/user")
+@RequestMapping("app/user/")
 @Tag(name = "API для работы с пользователями")
 public class UserController {
     private final UserServiceImpl service;
