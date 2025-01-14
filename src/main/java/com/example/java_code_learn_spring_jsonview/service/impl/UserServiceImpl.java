@@ -30,7 +30,10 @@ public class UserServiceImpl implements UserService {
     public User updateUser(Long id, UserDto dto) {
         logger.info("was invoked user update method in service");
         checkExistEntity(dto);
-        return repository.save(mapper.mapDtoToEntity(dto));
+        User user = repository.findById(id).get();
+        user.setUserName(dto.getUserName());
+        user.setEmail(dto.getEmail());
+        return user;
     }
 
     @Override
