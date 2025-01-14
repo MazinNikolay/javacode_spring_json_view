@@ -29,10 +29,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User updateUser(Long id, UserDto dto) {
         logger.info("was invoked user update method in service");
-        checkExistEntity(dto);
         User user = repository.findById(id).get();
         user.setUserName(dto.getUserName());
         user.setEmail(dto.getEmail());
+        repository.save(user);
         return user;
     }
 
